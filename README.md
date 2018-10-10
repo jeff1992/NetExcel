@@ -9,12 +9,6 @@ English | [简体中文](./README.zh-CN.md)
 ```bash
 # install
 Install-Package NetExcel
-
-# install dependency
-npm install
-
-# develop
-npm run dev
 ```
 
 This will automatically open http://localhost:9527.
