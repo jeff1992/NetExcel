@@ -1,17 +1,15 @@
 ## Introduction
 
 
-## Getting started
-
-```bash
-# install
+## install
+```nuget
 Install-Package NetExcel
 ```
 
 This will automatically open http://localhost:9527.
 
 ## Usage
-```bash
+```c#
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,10 +17,10 @@ using NetExcel;
 
 namespace ExportTest
 {
-    class Program
+	class Program
 	{
 		static void Main(string[] args)
-        {
+		{
             Random random = new Random();
             Dictionary<string, IEnumerable<string>> dic = new Dictionary<string, IEnumerable<string>>();
             dic.Add("Fruit", new string[] { "Peach", "Plum", "Banana", "Pear" });
