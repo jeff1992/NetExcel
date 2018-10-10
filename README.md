@@ -43,8 +43,6 @@ namespace ExportTest
             Dictionary<string, IEnumerable<string>> dic = new Dictionary<string, IEnumerable<string>>();
             dic.Add("Fruit", new string[] { "Peach", "Plum", "Banana", "Pear" });
             dic.Add("Vegetable", new string[] { "Cabbage", "Potato", "Cucumber", "Bear" });
-
-            //构造model
             var order = new
             {
                 ProjectName = "Gray wolf's birthday party",
