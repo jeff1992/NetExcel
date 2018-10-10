@@ -1,14 +1,32 @@
 ## Introduction
-
+Here you can simply export a excel using excel template like html template. You will never need to set cell styles in your code. Instead, all the cell styles and expressions can be set in the excel visibly. You will only need to code like this:
+```c#
+var tpl = new ExcelTemplate("tpl.xls");
+tpl.Values.Add("order", order);
+tpl.SaveAs("newfile.xls");
+```
 
 ## install
 ```nuget
 Install-Package NetExcel
 ```
 
-This will automatically open http://localhost:9527.
-
 ## Usage
+--First, make your template
+<a href="https://github.com/jeff1992/NetExcel/blob/master/tpl.png">
+	<img src="https://github.com/jeff1992/NetExcel/blob/master/tpl.png">
+</a>
+1. Control expression
+	Please keep the first column to write control expression like "for(...)"
+	Supports:
+		for(item in items)
+		for(item,index in items)	#index will count up from 1
+2. Value display
+	{user.name}
+	note: method or operation not supported now
+	
+3. Make it work in your code
+
 ```c#
 using System;
 using System.Collections.Generic;
@@ -44,12 +62,12 @@ namespace ExportTest
                     }).ToList()
                 })
             };
-            ExcelTpl render = new ExcelTpl("tpl.xlsx");
-            render.KeyValues.Add("order", order);
+            var tpl = new ExcelTemplate("tpl.xlsx");
+            tpl.KeyValues.Add("order", order);
             var fileName = DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx";
 
             //bellow is the main method
-            render.RenderAndSave(fileName);
+            tpl.SaveAs(fileName);
             System.Diagnostics.Process.Start(fileName);
         }
 	}
