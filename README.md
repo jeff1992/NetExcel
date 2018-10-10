@@ -77,4 +77,4 @@ namespace ExportTest
 
 [MIT](https://github.com/jeff1992/NetExcel/blob/master/LICENSE)
 
-Copyright (c) 2017-present PanJiaChen
+Copyright (c) 2017-present Jeff.Wang
