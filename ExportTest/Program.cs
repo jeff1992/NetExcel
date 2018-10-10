@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NetExcel;
 
 namespace ExportTest
 {
-	class Program
+    class Program
 	{
 		static void Main(string[] args)
         {
@@ -35,10 +32,12 @@ namespace ExportTest
                     }).ToList()
                 })
             };
-            ExcelTpl render = new ExcelTpl("tpl.xlsx");
-            render.KeyValues.Add("order", order);
+            ExcelTemplate render = new ExcelTemplate("tpl.xlsx");
+            render.Values.Add("order", order);
             var fileName = DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx";
-            render.RenderAndSave(fileName);
+
+            //bellow is the main method
+            render.SaveAs(fileName, "123123");
             System.Diagnostics.Process.Start(fileName);
         }
 	}

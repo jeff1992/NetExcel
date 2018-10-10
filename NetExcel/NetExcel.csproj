@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Jeff.Wang</Authors>
+    <Company>Jeff.Wang</Company>
+    <PackageProjectUrl>https://github.com/jeff1992/NetExcel</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/jeff1992/NetExcel/blob/master/LICENSE</PackageLicenseUrl>
+    <Description>Use excel template in excel to export excel file quickly and easily in .net</Description>
+    <RepositoryUrl>https://github.com/jeff1992/NetExcel</RepositoryUrl>
+    <RepositoryType>.NET</RepositoryType>
+    <PackageTags>.net excel template</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
