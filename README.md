@@ -6,7 +6,16 @@ tpl.Values.Add("order", order);
 tpl.SaveAs("newfile.xls");
 ```
 
-## install
+## Dependencis
+```bash
+.Net Framework ≥ 4.5
+```
+OR
+```bash
+.Net Core ≥ 2.0
+```
+
+## Install
 ```nuget
 Install-Package NetExcel
 ```
