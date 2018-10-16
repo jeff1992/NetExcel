@@ -6,7 +6,16 @@ tpl.Values.Add("order", order);
 tpl.SaveAs("newfile.xls");
 ```
 
-## install
+## Dependencis
+```bash
+.Net Framework ≥ 4.5
+```
+OR
+```bash
+.Net Core ≥ 2.0
+```
+
+## Install
 ```nuget
 Install-Package NetExcel
 ```
@@ -16,14 +25,14 @@ Install-Package NetExcel
 <a href="https://github.com/jeff1992/NetExcel/blob/master/tpl.png">
 	<img src="https://github.com/jeff1992/NetExcel/blob/master/tpl.png">
 </a>
-1. Control expression
-	Please keep the first column to write control expression like "for(...)"
-	Supports:
-		for(item in items)
-		for(item,index in items)	#index will count up from 1
-2. Value display
-	{user.name}
-	note: method or operation not supported now
+1. Control expression<br>
+	Please keep the first column to write control expression like "for(...)"<br>
+	Supports:<br>
+		for(item in items)<br>
+		for(item,index in items)	#index will count up from 1<br>
+2. Value display<br>
+	{user.name}<br>
+	note: method or operation not supported now<br>
 	
 3. Make it work in your code
 
@@ -43,8 +52,6 @@ namespace ExportTest
             Dictionary<string, IEnumerable<string>> dic = new Dictionary<string, IEnumerable<string>>();
             dic.Add("Fruit", new string[] { "Peach", "Plum", "Banana", "Pear" });
             dic.Add("Vegetable", new string[] { "Cabbage", "Potato", "Cucumber", "Bear" });
-
-            //构造model
             var order = new
             {
                 ProjectName = "Gray wolf's birthday party",
@@ -79,4 +86,4 @@ namespace ExportTest
 
 [MIT](https://github.com/jeff1992/NetExcel/blob/master/LICENSE)
 
-Copyright (c) 2017-present PanJiaChen
+Copyright (c) 2017-present Jeff.Wang
