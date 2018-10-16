@@ -7,6 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using OfficeOpenXml.FormulaParsing;
+using NCalc.Domain;
 
 namespace NetExcel
 {
@@ -29,6 +30,7 @@ namespace NetExcel
         Regex regBlockEnd = new Regex(@"^}\s*");
         Regex regDisplay = new Regex(@"(^{\s*$|^{\s*}\s*|^(\s*)})");
         Regex regMethod = new Regex(@"([a-zA-Z|\.]+)\s*\([\S|\s]+?\)\s*");
+        Regex regParam = new Regex(@"[a-zA-Z][a-zA-Z\d.]+");
         public ExlInterpreter(OfficeOpenXml.ExcelWorksheet sheet)
         {
             this.sheet = sheet;
@@ -219,52 +221,35 @@ namespace NetExcel
             }
         }
 
+
         object ExecExpression(string expression, Dictionary<string, object> data)
         {
-            //			var list = expression.Split('+', '-', '*', '/', '%');
-            //			if (list.Length > 1)
-            //			{
-            //
-            //				return null;
-            //			}
-            //			else
-            //			{
-            return GetValue(expression, data);
+            Dictionary<string, object> paramenters = new Dictionary<string, object>();
+            var key = 'a';
+            var newExp = regParam.Replace(expression, (Match x) =>
+            {
+                paramenters.Add(key.ToString(), GetValue(x.Value, data));
+                return key++.ToString();
+            });
+            var e = new NCalc.Expression(newExp);
+            e.Parameters = paramenters;
+            return e.Evaluate();
+                //			var list = expression.Split('+', '-', '*', '/', '%');
+                //			if (list.Length > 1)
+                //			{
+                //
+                //				return null;
+                //			}
+                //			else
+                //			{
+
+                return GetValue(expression, data);
             //			}
         }
 
         object GetValue(string name, Dictionary<string, object> data)
         {
             object value = null;
-            /*
-			StringBuilder sb = new StringBuilder(name.Length);
-			char lastChar = ' ';
-			for(var i = 0; i < name.Length; i++)
-			{
-				var c = name[i];
-				switch (c)
-				{
-					case '.':
-						break;
-					case '(':
-						break;
-					case ')':
-						break;
-					default:
-						if ((c >= '0' && c <= 'z') | (c >= 'Z' && c <= 'Z') | c == '_')
-						{
-							sb.Append(c);
-						}
-						else
-						{
-							throw new Exception($"Invalid name: {c}");
-						}
-						break;
-				}
-				lastChar = c;
-			}
-			*/
-
             var arr = name.Split('.');
             try
             {
