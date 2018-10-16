@@ -10,6 +10,7 @@
     <RepositoryUrl>https://github.com/jeff1992/NetExcel</RepositoryUrl>
     <RepositoryType>.NET</RepositoryType>
     <PackageTags>.net excel template</PackageTags>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>

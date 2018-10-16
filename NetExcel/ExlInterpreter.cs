@@ -47,9 +47,8 @@ namespace NetExcel
 
             sheet.DeleteColumn(1);
             //删除一行后，下面一行变成第一行。批量删除的方法有问题，所以一行一行删除
-            sheet.DeleteRow(1, this.rows, true);
-            //for (var i = 0; i < this.rows; i++)
-            //	sheet.DeleteRow(1);
+            for (var i = this.rows; i >=1 ; i--)
+            	sheet.DeleteRow(i);
         }
         //以block为递归单元
         void Run(Dictionary<string, object> data)
@@ -187,7 +186,7 @@ namespace NetExcel
                     if (org != null)
                     {
                         var orgStr = org.ToString();
-                        if (orgStr.StartsWith("@="))  //公式
+                        if (orgStr.StartsWith("#="))  //公式
                         {
                             newCell.FormulaR1C1 = ReplaceParam(orgStr.Substring(1), data).ToString();
                         }

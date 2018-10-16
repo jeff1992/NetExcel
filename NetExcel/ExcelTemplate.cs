@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace NetExcel
 {
@@ -32,31 +33,35 @@ namespace NetExcel
 			if (!System.IO.File.Exists(templateFile))
 				throw new Exception($"File \"{templateFile}\" does not exist");
 		}
-        /// <summary>
-        /// Save file
-        /// </summary>
-        /// <param name="fileName"></param>
-        public void SaveAs(string fileName)
+        private ExcelPackage Complie(string password = null)
         {
-            this.SaveAs(fileName, null);
+            CheckFile();
+            var package = new ExcelPackage(new System.IO.FileInfo(templateFile));
+            foreach (var sheet in package.Workbook.Worksheets)
+            {
+                if (sheet.Dimension == null)
+                    continue;
+                if (sheet.Hidden != eWorkSheetHidden.Visible)
+                    continue;
+                ExlInterpreter interp = new ExlInterpreter(sheet);
+                interp.Complie(this.Values);
+                if (!string.IsNullOrWhiteSpace(password))
+                    sheet.Protection.SetPassword(password);
+            }
+            return package;
         }
         /// <summary>
         /// Save and set file with password to modify
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="password"></param>
-        public void SaveAs(string fileName, string password)
+        public void SaveAs(string fileName, string password = null)
         {
-            CheckFile();
-            var package = new ExcelPackage(new System.IO.FileInfo(templateFile));
-            foreach (var sheet in package.Workbook.Worksheets)
-            {
-                ExlInterpreter interp = new ExlInterpreter(sheet);
-                interp.Complie(this.Values);
-                if (!string.IsNullOrWhiteSpace(password))
-                    sheet.Protection.SetPassword(password);
-            }
-            package.SaveAs(new System.IO.FileInfo(fileName));
+            Complie(password).SaveAs(new System.IO.FileInfo(fileName));
+        }
+        public void SaveAs(Stream stream, string password = null)
+        {
+            Complie(password).SaveAs(stream);
         }
 	}
 }
