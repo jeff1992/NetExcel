@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using NetExcel;
+﻿using NetExcel;
 
-namespace ExportTest
+namespace Sample
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
@@ -45,7 +41,6 @@ namespace ExportTest
 
             //bellow is the main method
             render.SaveAs(fileName, "123123");
-            System.Diagnostics.Process.Start(fileName);
         }
 
         static void Test2()
@@ -79,11 +74,11 @@ namespace ExportTest
             {
                 deliveryFormNo = "4"
             });
+
             var template = new ExcelTemplate("./templates/invoice.xlsx");
             template.Values.Add("model", model);
             var fileName = DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx";
             template.SaveAs(fileName);
-            System.Diagnostics.Process.Start(fileName);
         }
     }
 

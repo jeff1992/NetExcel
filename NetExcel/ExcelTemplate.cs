@@ -15,7 +15,8 @@ namespace NetExcel
 		/// <param name="templateFile">template file</param>
 		public ExcelTemplate(string templateFile)
 		{
-			this.templateFile = templateFile;
+            ExcelPackage.LicenseContext = LicenseContext.Commercial;
+            this.templateFile = templateFile;
 			CheckFile();
         }
 

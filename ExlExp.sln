@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2016
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExportTest", "ExportTest\ExportTest.csproj", "{6F7CA252-14AC-4ECD-8BF6-AED22E8E3425}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetExcel", "NetExcel\NetExcel.csproj", "{2976EC27-DD16-4FAE-A96D-9E8705D06106}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetExcel", "NetExcel\NetExcel.csproj", "{2976EC27-DD16-4FAE-A96D-9E8705D06106}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample.csproj", "{3C653A6E-F72A-4ACE-A6E4-69DBC236FC59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6F7CA252-14AC-4ECD-8BF6-AED22E8E3425}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F7CA252-14AC-4ECD-8BF6-AED22E8E3425}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F7CA252-14AC-4ECD-8BF6-AED22E8E3425}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F7CA252-14AC-4ECD-8BF6-AED22E8E3425}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2976EC27-DD16-4FAE-A96D-9E8705D06106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2976EC27-DD16-4FAE-A96D-9E8705D06106}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2976EC27-DD16-4FAE-A96D-9E8705D06106}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2976EC27-DD16-4FAE-A96D-9E8705D06106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C653A6E-F72A-4ACE-A6E4-69DBC236FC59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C653A6E-F72A-4ACE-A6E4-69DBC236FC59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C653A6E-F72A-4ACE-A6E4-69DBC236FC59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C653A6E-F72A-4ACE-A6E4-69DBC236FC59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
